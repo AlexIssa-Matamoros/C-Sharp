@@ -7,6 +7,8 @@ namespace Animales
         static void Main(string[] args)
         {
             Console.Clear();
+            ////////////////////////////////// MAMIFEROS ///////////////////////////////////////////
+
             Console.WriteLine("--------------- ANIMALES ---------------");
             Console.WriteLine("");
             Console.WriteLine("--------------- MAMIFEROS --------------");
@@ -29,7 +31,7 @@ namespace Animales
 
             Console.WriteLine("");
             
-            Gato cat = new Gato();
+            Gato cat = new Gato("Blanco y Gris");
             cat.Tipo = "Gato";
             cat.Nombre = "Michi";
             cat.Patas = 4;
@@ -38,6 +40,7 @@ namespace Animales
             
             Console.WriteLine("El Mamifero es = " + cat.Tipo);
             Console.WriteLine("El Nombre es = " + cat.Nombre);
+            Console.WriteLine("El Gato es de color = " + cat.Color);
             Console.WriteLine("El Gato tiene " + cat.Patas + " patas");
             cat.caminar();
             Console.WriteLine("El Gato tiene " + cat.Edad + " años");
@@ -60,6 +63,7 @@ namespace Animales
             kong.comida();
             Console.WriteLine("");
 
+////////////////////////////////// AVES ///////////////////////////////////////////
             Console.WriteLine("--------------- AVES --------------");
             Console.WriteLine("");
             
@@ -98,6 +102,8 @@ namespace Animales
             Loro.alimento();
             Console.WriteLine("");
 
+////////////////////////////////// PECES ///////////////////////////////////////////
+
             Console.WriteLine("--------------- Peces --------------");
             Console.WriteLine("");
         
@@ -106,8 +112,11 @@ namespace Animales
             Pglob.habitad = "Aguas Oceanicas Tropicales";
             Pglob.EsVenenoso = true;
             Pglob.Aletas = 2;
+            Pglob.EsDomestico = false;
             Console.WriteLine("El Pez se llama: " +Pglob.Nombre);
             Console.WriteLine("El Pez Globo vive en: " + Pglob.habitad);
+            Console.WriteLine("El Pez Globo tiene: " + Pglob.Aletas + " aletas");
+            Console.WriteLine("El Pez Globo es Domestico? = " + Pglob.EsDomestico);
             Console.WriteLine("El Pez Globo es Venenso? = " + Pglob.EsVenenoso);
             Pglob.Defensa();
         }

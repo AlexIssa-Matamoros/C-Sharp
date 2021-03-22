@@ -1,20 +1,19 @@
 using System;
-public class Perro: Mamifero
+public class Perro: Mamifero // Herencia
 {
-    public bool EsDomestico { get; set; }
     public string Raza { get; set; }
 
-    public Perro()
+    public Perro() //Poliformismo
     {
         EsDomestico = true;
     }
 
-    public Perro(bool esDomestico)
+    public Perro(bool esDomestico) //Poliformismo
     {
         EsDomestico = esDomestico;
     }
 
-    public void Ladrar()
+    public void Ladrar() //Abstraccion
     {
         Console.WriteLine("El perro le hace = GUAU GUAU GUAU");
     }
@@ -24,12 +23,12 @@ public class Perro: Mamifero
         PerroGrande();
     }
 
-    private void PerroGrande()
+    private void PerroGrande() //Encapsulamiento
     {
         Console.WriteLine("El perro es grande");
     }
 
-    public Perro(string raza)
+    public Perro(string raza) //Contructor
     {
         Raza=raza;
     }

@@ -1,14 +1,14 @@
 using System;
 
-public class PezGlobo: Peces
+public class PezGlobo: Peces //Herencia
 {
     public bool EsVenenoso { get; set; }
 
-    public PezGlobo()
+    public PezGlobo() //Polimorfismo
     {
         EsVenenoso = true;
     }
-    public PezGlobo(bool esvenenoso)
+    public PezGlobo(bool esvenenoso) //Polimorfismo
     {
         EsVenenoso = esvenenoso;
     }
@@ -18,7 +18,7 @@ public class PezGlobo: Peces
         Inflarse();
     }
 
-    private void Inflarse()
+    private void Inflarse() //Encapsulamiento
     {
         Console.WriteLine("EL pez Globo se infla cuando son atacados o se asustan");
     }

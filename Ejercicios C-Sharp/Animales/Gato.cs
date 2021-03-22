@@ -1,11 +1,11 @@
 using System;
 
-public class Gato: Mamifero
+public class Gato: Mamifero //Herencia
 {
     public bool Domestico { get; set; }
     public string Color { get; set; }
 
-    public Gato(string color)
+    public Gato(string color) 
     {
         Color = color;
     }
@@ -14,12 +14,12 @@ public class Gato: Mamifero
         Domestico = true;
     }
 
-    public Gato(bool esDomestico)
+    public Gato(bool esDomestico) //Polimorfismo
     {
         Domestico = esDomestico;
     }
 
-    public void Maullar()
+    public void Maullar() //Abstraccion
     {
         Console.WriteLine("El gato le hace MIAU... MIAU...");
     }
@@ -29,7 +29,7 @@ public class Gato: Mamifero
         GatoPequeño();
     }
 
-    private void GatoPequeño()
+    private void GatoPequeño() //Encapsulamiento
     {
         Console.WriteLine("El Gato es mediano");
     }

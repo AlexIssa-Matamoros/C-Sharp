@@ -1,7 +1,7 @@
 using System;
 namespace Animales
 {
-       public class Loro: Aves
+       public class Loro: Aves //Herencia
     {
         public bool EsSocialble { get; set; }
         public void alimento() // ---- abstraccion
@@ -18,7 +18,7 @@ namespace Animales
             EsSocialble = true;
         }
 
-        public Loro(bool esSociable)
+        public Loro(bool esSociable) // Polimorfismo
         {
             EsSocialble = esSociable;
         }
