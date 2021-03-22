@@ -21,7 +21,7 @@ public class Gato: Mamifero
 
     public void Maullar()
     {
-        Console.WriteLine("MIAU... MIAU...");
+        Console.WriteLine("El gato le hace MIAU... MIAU...");
     }
 
     public void Tamaño()
@@ -31,6 +31,6 @@ public class Gato: Mamifero
 
     private void GatoPequeño()
     {
-        Console.WriteLine("El Gato es grande");
+        Console.WriteLine("El Gato es mediano");
     }
 }

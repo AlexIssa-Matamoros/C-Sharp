@@ -16,7 +16,7 @@ public class Perro: Mamifero
 
     public void Ladrar()
     {
-        Console.WriteLine("GUAU GUAU GUAU");
+        Console.WriteLine("El perro le hace = GUAU GUAU GUAU");
     }
 
     public void Tamaño()

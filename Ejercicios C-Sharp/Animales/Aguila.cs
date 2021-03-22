@@ -3,7 +3,6 @@ using System;
     public class Aguila: Aves
     {
         public bool VuelaAlto { get; set; }
-        public string ColorPlumaje { get; set; }
         public string tipodeAguila { get; set; }
 
     public Aguila()
