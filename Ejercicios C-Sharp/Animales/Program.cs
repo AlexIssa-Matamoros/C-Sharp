@@ -11,12 +11,14 @@ namespace Animales
             Console.WriteLine("");
             Console.WriteLine("--------------- MAMIFEROS --------------");
             Perro dog = new Perro("Akita");
-            dog.Nombre= "Perro";
+            dog.Tipo= "Perro";
+            dog.Nombre = "Rocky";
             dog.Patas = 4;
             dog.Edad = 3;
             
             dog.EsDomestico = true;
-            Console.WriteLine("El Mamifero es = " + dog.Nombre);
+            Console.WriteLine("El Mamifero es = " + dog.Tipo);
+            Console.WriteLine("El Nombre es = " + dog.Nombre);
             Console.WriteLine("La raza del perro es = " + dog.Raza);
             Console.WriteLine("El perro tiene " + dog.Patas + " patas");
             dog.caminar();
@@ -28,12 +30,14 @@ namespace Animales
             Console.WriteLine("");
             
             Gato cat = new Gato();
-            cat.Nombre = "Gato";
+            cat.Tipo = "Gato";
+            cat.Nombre = "Michi";
             cat.Patas = 4;
             cat.Edad = 2;
             cat.Domestico = true;
             
-            Console.WriteLine("El Mamifero es = " + cat.Nombre);
+            Console.WriteLine("El Mamifero es = " + cat.Tipo);
+            Console.WriteLine("El Nombre es = " + cat.Nombre);
             Console.WriteLine("El Gato tiene " + cat.Patas + " patas");
             cat.caminar();
             Console.WriteLine("El Gato tiene " + cat.Edad + " años");
@@ -45,9 +49,11 @@ namespace Animales
             Mono kong = new Mono();
             kong.Domestico = false;
             kong.Patas = 2;
-            kong.Nombre = "Mono";
+            kong.Tipo = "Mono";
+            kong.Nombre = "kong";
            
-            Console.WriteLine("El Mamifero es = " + kong.Nombre);
+            Console.WriteLine("El Mamifero es = " + kong.Tipo);
+            Console.WriteLine("El Nombre es = " + kong.Nombre);
             Console.WriteLine("El mono tiene = " + kong.Patas + " patas");
             kong.caminar();
             Console.WriteLine("El mono es domestico? = " + kong.Domestico);
