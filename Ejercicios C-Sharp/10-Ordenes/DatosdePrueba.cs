@@ -196,3 +196,39 @@ public class DatosdePrueba
         Console.ReadLine();
     }
 }
+
+ public void Listarclases()
+    {
+        Console.Clear();
+        Console.WriteLine("");
+        Console.WriteLine("ASIGNATURAS");
+        Console.WriteLine("************");
+            
+            Console.WriteLine("    Nombre de la asignatura    |Seccion| Horarios |Cupos|       Profesor      |");
+            Console.WriteLine("_______________________________________________________________________________");
+
+        foreach (var clases in ListadeAsignatura)
+        {
+            Console.WriteLine(clases.Clase + "  " + clases.Seccion + "  " + clases.Horario + "  " + clases.Cupos + " " + clases.Profesor);        
+        }
+        Console.WriteLine("");
+        Console.WriteLine("0 - ATRAS");
+        
+        Adiciones adi = new Adiciones();
+        Matricula M = new Matricula();
+        string opcion = "";
+
+             while (true)
+        {
+         opcion = Console.ReadLine();
+                switch (opcion)
+            {
+                case "0":
+                adi.DEPART();
+                break;
+
+            }
+                
+        }
+    
+    }   

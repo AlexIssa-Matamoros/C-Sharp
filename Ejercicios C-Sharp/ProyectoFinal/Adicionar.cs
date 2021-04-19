@@ -4,8 +4,6 @@ using System.Collections.Generic;
     public class Adiciones
     {
         public List<Departamento> ListadeDepto { get; set; }
-
-      
         public Adiciones()
         {
             ListadeDepto = new List<Departamento>();
@@ -26,8 +24,8 @@ using System.Collections.Generic;
         }
 
 
-        public void DEPART()
-        {
+    public void DEPART()
+    {
         
             Console.Clear();
             Console.WriteLine("");
@@ -39,41 +37,39 @@ using System.Collections.Generic;
                 Console.WriteLine(D.NombreDepto);
                 
             }
-            Console.WriteLine("0 - Atras");
+            Console.WriteLine("0 - Salir");
             Console.WriteLine("");
             Console.WriteLine("* Seleccione un departamento *");
-        Matricula M = new Matricula();
-        Adiciones adi = new Adiciones();
-        string opcion = "";
+
+            
+            Asignaturas Asi = new Asignaturas();
+            Adiciones adi = new Adiciones();
+            MENU Me = new MENU();
+            string a = "";
          while (true)
          {
-            opcion = Console.ReadLine();
-            switch (opcion)
-            {
+            a = Console.ReadLine();
+            switch (a)
+                {
                 case "1":
-                    M.Listarclases();
+                   Asi.ListarAsignaturas();
                     break;
                 case "2":
-                    M.Listarclases();
+                    Asi.ListarAsignaturas();
                     break;
                 case "3":
-                    M.Listarclases();
+                    Asi.ListarAsignaturas();
                     break;
                 case "4":
-                    M.Listarclases();
+                    Asi.ListarAsignaturas();
                     break;
-                case "7":
-                    M.Listarclases();
+                }
+                if (a.ToLower() == "0")
+                {
                     break;
-                default:
-                break;
-            }
+                }
+        } 
 
-            if (opcion == "0")
-            {
-                break;
-            }
-
-         }
-        }
     }
+
+}
