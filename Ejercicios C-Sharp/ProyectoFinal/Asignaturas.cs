@@ -43,10 +43,26 @@ public class Asignaturas
         }
         while (true)
         {
-                Console.WriteLine("");
-                Console.WriteLine("0 - Atras");
-                string back = Console.ReadLine();
-            if (back.ToLower() == "0")
+            op = Console.ReadLine();
+            switch (op)
+            {
+                case "1":
+                    Secc.SeccionesIntro();
+                    break;
+                case "2":
+                    Secc.SeccionesIntro();
+                    break;
+                case "3":
+                    Secc.SeccionesIntro();
+                    break;
+                case "4":
+                    Secc.SeccionesIntro();
+                    break;
+                case "5":
+                    Secc.SeccionesIntro();
+                    break;
+            }
+                if (op.ToLower() == "0")
                 {
                     break;
                 }
