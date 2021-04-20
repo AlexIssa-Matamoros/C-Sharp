@@ -1,5 +1,5 @@
 using System;
-public class Alumno:Persona
+public class Alumno
 {
     public string carrera { get; set; }
 }

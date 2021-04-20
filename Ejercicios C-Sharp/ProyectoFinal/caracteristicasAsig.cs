@@ -5,13 +5,14 @@ public class Asig
 {
     public string Clase { get; set; }
     public int Codigo { get; set; }
+    public string Numero { get; set; }
     
     
-    public Asig(int codigo,string clase)
+    public Asig(string numero, int codigo,string clase)
     {
         Clase = clase;
         Codigo = codigo; 
-
+        Numero = numero;
     }
 
 }

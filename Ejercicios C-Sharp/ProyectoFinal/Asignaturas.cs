@@ -14,19 +14,19 @@ public class Asignaturas
 
     private void MostrarAsignaturas()
     {
-        Asig A1 = new Asig(003,"Introduccion a la Informatica");
+        Asig A1 = new Asig("1)",003,"Introduccion a la Informatica");
         ListadeAsignaturas.Add(A1);
         
-        Asig A2 = new Asig(013,"Taller de Hardware 1");
+        Asig A2 = new Asig("2)",013,"Taller de Hardware 1");
         ListadeAsignaturas.Add(A2);
 
-        Asig A3 = new Asig(023,"Metodologia de la programacion");
+        Asig A3 = new Asig("3)",023,"Metodologia de la programacion");
         ListadeAsignaturas.Add(A3);
 
-        Asig A4 = new Asig(033,"Lenguaje de Programacion I");
+        Asig A4 = new Asig("4)",033,"Lenguaje de Programacion I");
         ListadeAsignaturas.Add(A4);
 
-        Asig A5 = new Asig(043,"Sistemas Operativos 1");
+        Asig A5 = new Asig("5)",043,"Sistemas Operativos 1");
         ListadeAsignaturas.Add(A5);
     }
 
@@ -39,10 +39,18 @@ public class Asignaturas
 
         foreach (var As in ListadeAsignaturas)
         {
-            Console.WriteLine(As.Codigo + "-" + As.Clase);
+            Console.WriteLine(As.Numero + "  " + As.Codigo + "-" + As.Clase);
         }
+        Console.WriteLine("");
+        Console.WriteLine("Seleccione una asignatura: ");
+        Console.WriteLine("");
+        Console.WriteLine("0 - Atras");
+
+
+        Secciones Secc = new Secciones();
+        string op = "";
         while (true)
-        {
+        { 
             op = Console.ReadLine();
             switch (op)
             {
@@ -58,13 +66,12 @@ public class Asignaturas
                 case "4":
                     Secc.SeccionesIntro();
                     break;
-                case "5":
-                    Secc.SeccionesIntro();
-                    break;
+                case "0":
+                   return;
             }
                 if (op.ToLower() == "0")
                 {
-                    break;
+                    return;
                 }
         }
        
