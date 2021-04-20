@@ -39,7 +39,7 @@ public class Secciones
                 {
                     Console.WriteLine("Seccion no encontrado");
                     Console.ReadLine();
-                    return;
+                    break;
                 } else {
                     Console.WriteLine("Seccion encontrada: " + intro.Seccion + " , " + intro.Horario + " , " + intro.Cupos + " , " + intro.Profesor);
                 }
@@ -51,7 +51,8 @@ public class Secciones
             }
                 
         }
-
+        Console.WriteLine();
+        Console.ReadLine();
     }
 
             

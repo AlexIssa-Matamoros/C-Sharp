@@ -67,7 +67,9 @@ public class Asignaturas
                     Secc.SeccionesIntro();
                     break;
                 case "0":
-                   return;
+                   break;
+                   default:
+                   break;
             }
                 if (op.ToLower() == "0")
                 {

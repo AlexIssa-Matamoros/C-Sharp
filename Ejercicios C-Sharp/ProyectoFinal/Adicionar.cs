@@ -37,7 +37,8 @@ using System.Collections.Generic;
                 Console.WriteLine(D.NombreDepto);
                 
             }
-            Console.WriteLine("0 - Salir");
+            Console.ReadLine();
+            Console.WriteLine("ENTER - Salir");
             Console.WriteLine("");
             Console.WriteLine("* Seleccione un departamento *");
 
@@ -60,8 +61,7 @@ using System.Collections.Generic;
                 case "3":
                     Asi.ListarAsignaturas();
                     break;
-                case "4":
-                    Asi.ListarAsignaturas();
+                case "0":
                     break;
                 }
                 if (a.ToLower() == "0")

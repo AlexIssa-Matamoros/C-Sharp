@@ -1,10 +1,10 @@
 using System;
 
-public class MenuPrincipal
+public class MenuSecundario
 {
-    public void menu()
+    public void menu2()
     {
-        MenuSecundario M2 = new MenuSecundario();
+        AdicionarAsig VA = new AdicionarAsig();
         string opcion = "";
         while (true)
         {
@@ -12,18 +12,17 @@ public class MenuPrincipal
             Console.WriteLine("DIRECCION DE INGRESO PERMANECIA Y PROMOCION DIPP - UNAH");
             Console.WriteLine("=======================================================");
             Console.WriteLine("");
-            Console.WriteLine("1 - Adicionar asignatura");
-            Console.WriteLine("2 - Cancelar asignatura");
-            Console.WriteLine("3 - Listado de asignaturas canceladas");
-            Console.WriteLine("4 - Forma 03");
-            Console.WriteLine("5 - Estao de cuenta");
-            Console.WriteLine("0 - Cerrar Sesion");
+            Console.WriteLine("1 - Ver Departamentos");
+            Console.WriteLine("2 - Ver Asignaturas");
+            Console.WriteLine("3 - Ver Secciones");
+            Console.WriteLine("4 - Realizar Matricula");
+            Console.WriteLine("5 - Ver Clases Matriculadas");
+            Console.WriteLine("0 - Atras");
 
             opcion = Console.ReadLine();
             switch (opcion)
             {
                 case "1":
-                M2.menu2();
                     break;
                 case "2":
                     
