@@ -7,9 +7,10 @@ public class AdicionarAsig
     public List<Departamentos> ListadeDepto { get; set; }
     public List<Asignaturas> ListadeAsignaturas { get; set; }
     public List<Secciones> ListadeSecciones { get; set; }
-
+    public List<Alumno> Alum { get; set; }
     public List<AgregarAsig> ListadeMatricula { get; set; }
     public AdicionarAsig()
+    
     {
         ListadeDepto = new List<Departamentos>();
         CargarDeptos();
@@ -17,10 +18,17 @@ public class AdicionarAsig
         CargarAsig();
         ListadeSecciones = new List<Secciones>();
         CargarSecciones();
+        Alum = new List<Alumno>();
+        MirarAlum();
 
         ListadeMatricula = new List<AgregarAsig>();
     }
 
+    private void MirarAlum()
+    {
+        Alumno a = new Alumno(20192001134, "Alex Issai Matamoros Fuentes");
+        Alum.Add(a);
+    }
     private void CargarDeptos()
     {
         Departamentos D1 = new Departamentos(01, "Informatica Adiministrativa");
@@ -31,7 +39,6 @@ public class AdicionarAsig
             ListadeDepto.Add(D3);
 
     }
-
     private void CargarAsig()
     {
         Asignaturas A1 = new Asignaturas(01, "Introduccion a Informatica");
@@ -102,6 +109,7 @@ public class AdicionarAsig
         }
         Console.ReadLine(); 
     }
+    
     //////////////////////////////////////
     public void MatricularClase()
     {
@@ -126,7 +134,9 @@ public class AdicionarAsig
 
             Console.WriteLine("Ingrese el codigo de la Asignatura: ");
             string codigoAs = Console.ReadLine();
+            string numero = Console.ReadLine();
             Asignaturas Asig = ListadeAsignaturas.Find(A => A.Codigo_Clase.ToString() == codigoAs);
+            Alumno Al = Alum.Find(al => al.NumeroCuenta.ToString() == numero);
             if (Asig == null)
             {
                 Console.WriteLine("Parece que no existe esta Asignatura");
@@ -142,7 +152,7 @@ public class AdicionarAsig
 
 
             int Nmatricula = ListadeMatricula.Count + 1;
-            AgregarAsig Matri = new AgregarAsig(Nmatricula,de);
+            AgregarAsig Matri = new AgregarAsig(Nmatricula, Depto, Asig,Al);
             ListadeMatricula.Add(Matri);
         while (true)
         {  
@@ -153,21 +163,50 @@ public class AdicionarAsig
             {
                 Console.WriteLine("Seccion en lista de Espera");
                 Console.ReadLine();
+                return;
             } else{
                 Console.WriteLine("Seccion Disponible: " + secciones.Seccion + "," + secciones.Horario + "," + secciones.Cupos + "," + secciones.Profesor);
-                Matri.AgragarAsignatura(secciones);
+                Matri.AgragarAsignatura(Asig,secciones,Al);
+                
             }
-
-            Console.WriteLine("Desea buscar otra seccion? s/n");
-            string continuar = Console.ReadLine();
-            if (continuar.ToLower() == "n") {
-                break;
-            }
+           
+            Console.WriteLine("");
+            Console.WriteLine("La Asignaturas seleccionada es: " + Matri.SeccionesM);
+            Console.ReadLine();
+            return;
         }
-        //agregar la clase matriculada
-        
+            
+    }
+
+    public void PreMatricula()
+    {
+        Console.Clear();
+        Console.WriteLine("MATRICULA");
+        Console.WriteLine("========================");
+        Console.WriteLine("");
+        Console.WriteLine("DATOS PERSONALES");
+        Console.WriteLine("________________");
+                
+
+        foreach (var Mat in ListadeMatricula)
+        {
+            Console.WriteLine(Mat.Departamentos.Nombre_Dep);
+                Console.WriteLine(" Cod     |   Asignatura   | Seccion | Horario");
+
+            foreach (var Matricula in Mat.Matriculado)
+            {
+                Console.WriteLine(Matricula.Asignaturas + " | " + Matricula.Asignaturas.Clase + " | " + Matricula.Secciones.Seccion + " | " + Matricula.Secciones.Horario);
+            }
+            Console.WriteLine();
+        }
+
+        Console.ReadLine();
     }
         
-
+        
+        
 }
+        
+
+
        

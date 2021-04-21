@@ -12,6 +12,6 @@ public class Secciones
         Seccion = seccion;
         Profesor = profesor;
         Horario = horario;
-        Cupos = seccion;
+        Cupos = cupos;
     }
 }

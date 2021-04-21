@@ -35,7 +35,7 @@ public class MenuSecundario
                     VA.MatricularClase();
                     break;
                 case "5":
-                   
+                   VA.PreMatricula();
                     break;
                 default:
                 break;
