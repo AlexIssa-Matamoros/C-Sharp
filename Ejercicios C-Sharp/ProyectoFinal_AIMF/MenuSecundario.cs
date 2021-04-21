@@ -23,15 +23,16 @@ public class MenuSecundario
             switch (opcion)
             {
                 case "1":
+                    VA.MostrarDepto();
                     break;
                 case "2":
-                    
+                    VA.MostrarAsig();
                     break;
                 case "3":
-                    
+                    VA.MostrarSecc();
                     break;
                 case "4":
-                   
+                    VA.MatricularClase();
                     break;
                 case "5":
                    
