@@ -11,7 +11,7 @@ public class ListadoMatricula
     public string Profesor { get; set; }
 
     //public ListadoMatricula(int num, Asignaturas asignat, Secciones seccion,string horarios, int cupos, string profesor)
-    public ListadoMatricula(int num,Asignaturas asignaturas, Secciones seccion)
+    public ListadoMatricula(int num,Asignaturas asignaturas, Secciones seccion,Alumno alumno)
     {
         
         Num = num;

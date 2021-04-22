@@ -9,6 +9,7 @@ public class AdicionarAsig
     public List<Secciones> ListadeSecciones { get; set; }
     public List<Alumno> Alum { get; set; }
     public List<AgregarAsig> ListadeMatricula { get; set; }
+    
     public AdicionarAsig()
     
     {
@@ -26,7 +27,8 @@ public class AdicionarAsig
 
     private void MirarAlum()
     {
-        Alumno a = new Alumno(20192001134, "Alex Issai Matamoros Fuentes");
+    
+        Alumno a = new Alumno(20192001134, "Alex Issai Matamoros Fuentes",12345);
         Alum.Add(a);
     }
     private void CargarDeptos()
@@ -71,6 +73,14 @@ public class AdicionarAsig
         ListadeSecciones.Add(s9);
     }
 
+    public void LiAlumnos()
+    {
+
+        foreach (var Al in Alum)
+        {
+            Console.WriteLine(Al.NumeroCuenta + "," + Al.Nombre);
+        }
+    }
     public void MostrarDepto()
     {
         Console.Clear();
@@ -111,6 +121,29 @@ public class AdicionarAsig
     }
     
     //////////////////////////////////////
+    public void Login()
+    {
+        Console.Clear();
+        Console.WriteLine("                             B I E N V E N I D O");
+        Console.WriteLine("-------------------------------------------------------------------------------------");
+        Console.WriteLine("");
+        MenuPrincipal men = new MenuPrincipal();
+        
+
+        Console.WriteLine("Numero de Cuenta: "); string Ncue = Console.ReadLine();
+        Console.WriteLine("Ingrese la contraseña: "); string con = Console.ReadLine();
+        if (Ncue == "20192001134" && con == "1234")
+        {
+            Console.WriteLine("Datos Correctos, Presione ENTER para continuar...");
+            Console.ReadKey();
+            men.menu();
+        } else{
+            Console.WriteLine("Los datos no coinciden");
+            Console.ReadLine();
+        }
+        
+    }
+    ///////////////////////////////////////
     public void MatricularClase()
     {
         Console.Clear();
@@ -118,6 +151,16 @@ public class AdicionarAsig
         Console.WriteLine("-----------------");
         Console.WriteLine("");
 
+        Console.WriteLine("Ingrese su numero de cuenta: ");
+        string Ncuen = Console.ReadLine();
+        Alumno Al = Alum.Find(a => a.NumeroCuenta.ToString() == Ncuen);
+        if (Al == null)
+        {
+            Console.WriteLine("Numero de cuenta no registradp");
+            Console.ReadLine();
+            return;
+        }
+ 
         Console.WriteLine("Ingrese el codigo del Departamento: ");
         string codigoDe = Console.ReadLine();
         Departamentos Depto = ListadeDepto.Find(a => a.Codigo.ToString() == codigoDe);
@@ -134,9 +177,10 @@ public class AdicionarAsig
 
             Console.WriteLine("Ingrese el codigo de la Asignatura: ");
             string codigoAs = Console.ReadLine();
-            string numero = Console.ReadLine();
+            
             Asignaturas Asig = ListadeAsignaturas.Find(A => A.Codigo_Clase.ToString() == codigoAs);
-            Alumno Al = Alum.Find(al => al.NumeroCuenta.ToString() == numero);
+            string numero = Console.ReadLine();
+            //Alumno Al = Alum.Find(al => al.NumeroCuenta.ToString() == numero);
             if (Asig == null)
             {
                 Console.WriteLine("Parece que no existe esta Asignatura");
@@ -181,18 +225,25 @@ public class AdicionarAsig
     public void PreMatricula()
     {
         Console.Clear();
-        Console.WriteLine("MATRICULA");
-        Console.WriteLine("========================");
-        Console.WriteLine("");
-        Console.WriteLine("DATOS PERSONALES");
-        Console.WriteLine("__________________________________________________________________________");
-            Console.WriteLine("Cod|          Asignatura       | Secc | HI | HF  | Horario   | Edificio");        
-
+            Console.WriteLine("                           M A T R I C U L A                               ");
+            Console.WriteLine("===========================================================================");
+            Console.WriteLine("___________________________________________________________________________");
+            Console.WriteLine("Cod|          Asignatura       | Secc | HI | HF  | Horario   | Edificio   |");
+            Console.WriteLine("___|___________________________|______|____|_____|___________|____________|");
         foreach (var Mat in ListadeMatricula)
         {
-            Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "   |" + Mat.Edi);
-           
-                
+            //Console.WriteLine(Mat.Alumno.Nombre);
+            //Console.WriteLine(Mat.Alumno.NumeroCuenta);
+
+            Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "   |" + Mat.Edi + "  |");
+
+           // foreach (var Ag in Mat.Matriculado)
+           // {
+            //    Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "   |" + Mat.Edi);
+
+           // }
+
+        
         }
 
         Console.ReadLine();     

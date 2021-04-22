@@ -34,10 +34,13 @@ public List<ListadoMatricula> Matriculado { get; set; }
     {
         int Nmatricula = Matriculado.Count + 1;
 
-        ListadoMatricula Lm = new ListadoMatricula(Nmatricula,asignaturas,secciones);
+        ListadoMatricula Lm = new ListadoMatricula(Nmatricula,asignaturas,secciones,alumno);
         Matriculado.Add(Lm);
         SeccionesM = asignaturas.Codigo_Clase + " , " + asignaturas.Clase + " , " + secciones.Seccion + " , " + secciones.Horario + " , " + secciones.Cupos + " , " + secciones.Profesor;
         
+        //si no funciona, borrar
+        //ListadoMatricula Asi = new ListadoMatricula(CodigoClase,asignaturas,secciones,alumno);
+        //Matriculado.Add(Asi);
         CodigoClase = asignaturas.Codigo_Clase;
         ParaNombre = asignaturas.Clase;
         ParaSecciones = secciones.Seccion;

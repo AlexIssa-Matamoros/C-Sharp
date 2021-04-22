@@ -6,8 +6,11 @@ namespace ProyectoFinal_AIMF
     {
         static void Main(string[] args)
         {
-            MenuPrincipal men = new MenuPrincipal();
-            men.menu();
+            //MenuPrincipal men = new MenuPrincipal();
+            //men.menu();
+            AdicionarAsig log = new AdicionarAsig();
+            log.Login();
+
         }
     }
 }
