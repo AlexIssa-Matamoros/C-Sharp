@@ -186,18 +186,12 @@ public class AdicionarAsig
         Console.WriteLine("");
         Console.WriteLine("DATOS PERSONALES");
         Console.WriteLine("________________");
-                
+            Console.WriteLine("Cod|          Asignatura         |Secc  | Horario");        
 
         foreach (var Mat in ListadeMatricula)
         {
-            Console.WriteLine(Mat.Departamentos.Nombre_Dep);
-                Console.WriteLine(" Cod     |   Asignatura   | Seccion | Horario");
-
-            foreach (var Matricula in Mat.Matriculado)
-            {
-                Console.WriteLine(Matricula.Asignaturas + " | " + Matricula.Asignaturas.Clase + " | " + Matricula.Secciones.Seccion + " | " + Matricula.Secciones.Horario);
-            }
-            Console.WriteLine();
+            Console.WriteLine(Mat.CodigoClase + "  | " + Mat.ParaNombre + "  | " + Mat.ParaSecciones + "  | " + Mat.ParaHorario);
+                
         }
 
         Console.ReadLine();

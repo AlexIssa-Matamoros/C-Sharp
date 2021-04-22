@@ -10,6 +10,12 @@ public Secciones Secciones { get; set; }
 public Asignaturas Asignaturas { get; set; }
 
 public string SeccionesM { get; set; }
+// Para mostrarlas en la PreMatricula
+public int CodigoClase { get; set; }
+public string ParaNombre { get; set; }
+public int ParaSecciones { get; set; } 
+public string ParaHorario { get; set; }
+
 public List<ListadoMatricula> Matriculado { get; set; }
 
    public AgregarAsig(int nmatricula,Departamentos departamentos, Asignaturas asignaturas, Alumno alumno)
@@ -29,6 +35,11 @@ public List<ListadoMatricula> Matriculado { get; set; }
         Matriculado.Add(Lm);
         SeccionesM = asignaturas.Codigo_Clase + " , " + asignaturas.Clase + " , " + secciones.Seccion + " , " + secciones.Horario + " , " + secciones.Cupos + " , " + secciones.Profesor;
         
+        CodigoClase = asignaturas.Codigo_Clase;
+        ParaNombre = asignaturas.Clase;
+        ParaSecciones = secciones.Seccion;
+        ParaHorario = secciones.Horario;
+
     }
     
 }

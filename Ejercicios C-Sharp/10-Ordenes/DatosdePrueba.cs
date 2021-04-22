@@ -187,7 +187,7 @@ public class DatosdePrueba
 
             foreach (var detalle in orden.ListaOrdenDetalle)
             {
-                Console.WriteLine("     " + detalle.Producto.Descripcion + " | " + detalle.Cantidad + " | " + detalle.Precio);
+                Console.WriteLine("     " + detalle.Producto.Codigo + " | " + detalle.Cantidad + " | " + detalle.Precio);
             }
 
             Console.WriteLine();
