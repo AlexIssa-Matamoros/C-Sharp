@@ -19,15 +19,6 @@ public class ListadoMatricula
         Horarios = seccion.Horario;
         Cupos = seccion.Cupos;
         Profesor = seccion.Profesor;
-
-        
-        
-        
-        
-        
-        
-        
-        
         
         //Clase = Asignat.Clase;
         //Num = num;

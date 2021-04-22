@@ -41,9 +41,9 @@ public class AdicionarAsig
     }
     private void CargarAsig()
     {
-        Asignaturas A1 = new Asignaturas(01, "Introduccion a Informatica");
+        Asignaturas A1 = new Asignaturas(01, "Intro a Informatica        ");
             ListadeAsignaturas.Add(A1);
-        Asignaturas A2 = new Asignaturas(02, "Taller de Hardawe I");
+        Asignaturas A2 = new Asignaturas(02, "Taller de Hardawe I        ");
             ListadeAsignaturas.Add(A2);
         Asignaturas A3 = new Asignaturas(03, "Metodologia de Programacion");
             ListadeAsignaturas.Add(A3);
@@ -51,23 +51,23 @@ public class AdicionarAsig
     }
     private void CargarSecciones()
     {
-            Secciones s1 = new Secciones(0700,"LuMaMiJu",30, "Bily Fernandez");
+            Secciones s1 = new Secciones(0700,07,08,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s1);
-            Secciones s2 = new Secciones(0701,"LuMaMiJu",30, "Bily Fernandez");
+            Secciones s2 = new Secciones(0701,07,08,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s2);
-            Secciones s3 = new Secciones(0800,"LuMaMiJu",30, "Bily Fernandez");
+            Secciones s3 = new Secciones(0800,08,09,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s3);
-            Secciones s4 = new Secciones(0801,"LuMaMiJu",30, "Bily Fernandez");
+            Secciones s4 = new Secciones(0801,08,09,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s4);
-            Secciones s5 = new Secciones(0900,"LuMaMiJu",30, "Bily Fernandez");
+            Secciones s5 = new Secciones(0900,09,10,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s5);
-            Secciones s6 = new Secciones(0901,"LuMaMiJu",30, "Bily Fernandez");
+            Secciones s6 = new Secciones(0901,09,10,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s6);
-            Secciones s7 = new Secciones(1000,"LuMaMiJu",30, "Bily Fernandez");
+            Secciones s7 = new Secciones(1000,10,11,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s7);
-            Secciones s8 = new Secciones(1001,"LuMaMiJu",30, "Bily Fernandez");
+            Secciones s8 = new Secciones(1001,10,11,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s8);
-            Secciones s9 = new Secciones(1100,"LuMaMiJu",30, "Bily Fernandez");
+            Secciones s9 = new Secciones(1100,11,12,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s9);
     }
 
@@ -185,16 +185,17 @@ public class AdicionarAsig
         Console.WriteLine("========================");
         Console.WriteLine("");
         Console.WriteLine("DATOS PERSONALES");
-        Console.WriteLine("________________");
-            Console.WriteLine("Cod|          Asignatura         |Secc  | Horario");        
+        Console.WriteLine("__________________________________________________________________________");
+            Console.WriteLine("Cod|          Asignatura       | Secc | HI | HF  | Horario   | Edificio");        
 
         foreach (var Mat in ListadeMatricula)
         {
-            Console.WriteLine(Mat.CodigoClase + "  | " + Mat.ParaNombre + "  | " + Mat.ParaSecciones + "  | " + Mat.ParaHorario);
+            Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "   |" + Mat.Edi);
+           
                 
         }
 
-        Console.ReadLine();
+        Console.ReadLine();     
     }
         
         

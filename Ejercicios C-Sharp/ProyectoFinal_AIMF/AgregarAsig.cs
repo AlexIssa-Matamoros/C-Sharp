@@ -15,6 +15,9 @@ public int CodigoClase { get; set; }
 public string ParaNombre { get; set; }
 public int ParaSecciones { get; set; } 
 public string ParaHorario { get; set; }
+public int HoraIni { get; set; }
+public int Horafi { get; set; }
+public string Edi { get; set; }
 
 public List<ListadoMatricula> Matriculado { get; set; }
 
@@ -39,6 +42,9 @@ public List<ListadoMatricula> Matriculado { get; set; }
         ParaNombre = asignaturas.Clase;
         ParaSecciones = secciones.Seccion;
         ParaHorario = secciones.Horario;
+        HoraIni = secciones.HI;
+        Horafi = secciones.HF;
+        Edi = secciones.Edificio;
 
     }
     
