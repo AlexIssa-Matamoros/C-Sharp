@@ -12,29 +12,32 @@ public class MenuSecundario
             Console.WriteLine("DIRECCION DE INGRESO PERMANECIA Y PROMOCION DIPP - UNAH");
             Console.WriteLine("=======================================================");
             Console.WriteLine("");
-            Console.WriteLine("1 - Ver Departamentos");
-            Console.WriteLine("2 - Ver Asignaturas");
-            Console.WriteLine("3 - Ver Secciones");
-            Console.WriteLine("4 - Realizar Matricula");
-            Console.WriteLine("5 - Ver Clases Matriculadas");
+            Console.WriteLine("1 - Ingresar Datos personales");
+            Console.WriteLine("2 - Ver Departamentos");
+            Console.WriteLine("3 - Ver Asignaturas");
+            Console.WriteLine("4 - Ver Secciones");
+            Console.WriteLine("5 - Realizar Matricula");
+            Console.WriteLine("6 - Ver asignaturas Matriculadas");
             Console.WriteLine("0 - Atras");
 
             opcion = Console.ReadLine();
             switch (opcion)
             {
                 case "1":
+                break;
+                case "2":
                     VA.MostrarDepto();
                     break;
-                case "2":
+                case "3":
                     VA.MostrarAsig();
                     break;
-                case "3":
+                case "4":
                     VA.MostrarSecc();
                     break;
-                case "4":
+                case "5":
                     VA.MatricularClase();
                     break;
-                case "5":
+                case "6":
                    VA.PreMatricula();
                     break;
                 default:

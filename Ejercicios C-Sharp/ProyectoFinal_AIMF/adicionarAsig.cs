@@ -28,7 +28,7 @@ public class AdicionarAsig
     private void MirarAlum()
     {
     
-        Alumno a = new Alumno(20192001134, "Alex Issai Matamoros Fuentes",12345);
+        Alumno a = new Alumno(20192001134, "Alex Issai Matamoros Fuentes",12345,"Informatica Administrativa");
         Alum.Add(a);
     }
     private void CargarDeptos()
@@ -144,6 +144,7 @@ public class AdicionarAsig
         
     }
     ///////////////////////////////////////
+
     public void MatricularClase()
     {
         Console.Clear();
@@ -156,7 +157,7 @@ public class AdicionarAsig
         Alumno Al = Alum.Find(a => a.NumeroCuenta.ToString() == Ncuen);
         if (Al == null)
         {
-            Console.WriteLine("Numero de cuenta no registradp");
+            Console.WriteLine("Numero de cuenta no registrado");
             Console.ReadLine();
             return;
         }
@@ -225,8 +226,11 @@ public class AdicionarAsig
     public void PreMatricula()
     {
         Console.Clear();
+            Alumno j = new Alumno(20192001134, "Alex Issai Matamoros Fuentes", 1234,"Informatica Administrativa");
             Console.WriteLine("                           M A T R I C U L A                               ");
             Console.WriteLine("===========================================================================");
+            Console.WriteLine("Nombre:           "+ j.Nombre);
+            Console.WriteLine("Numero de Cuenta: "+j.NumeroCuenta);
             Console.WriteLine("___________________________________________________________________________");
             Console.WriteLine("Cod|          Asignatura       | Secc | HI | HF  | Horario   | Edificio   |");
             Console.WriteLine("___|___________________________|______|____|_____|___________|____________|");
@@ -248,8 +252,9 @@ public class AdicionarAsig
 
         Console.ReadLine();     
     }
-        
-        
+
+    ////////////////////
+
         
 }
         

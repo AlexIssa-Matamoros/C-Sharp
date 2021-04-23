@@ -5,6 +5,7 @@ public class MenuPrincipal
     public void menu()
     {
         MenuSecundario M2 = new MenuSecundario();
+        AdicionarAsig Ad = new AdicionarAsig();
         string opcion = "";
         while (true)
         {
@@ -16,7 +17,7 @@ public class MenuPrincipal
             Console.WriteLine("2 - Cancelar asignatura");
             Console.WriteLine("3 - Listado de asignaturas canceladas");
             Console.WriteLine("4 - Forma 03");
-            Console.WriteLine("5 - Estao de cuenta");
+            Console.WriteLine("5 - Estado de cuenta");
             Console.WriteLine("0 - Cerrar Sesion");
 
             opcion = Console.ReadLine();
@@ -26,13 +27,13 @@ public class MenuPrincipal
                 M2.menu2();
                     break;
                 case "2":
-                    
+                    Ad.MostrarSecc();
                     break;
                 case "3":
                     
                     break;
                 case "4":
-                   
+                   Ad.PreMatricula();
                     break;
                 case "5":
                    

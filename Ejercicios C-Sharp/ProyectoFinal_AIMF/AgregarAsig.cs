@@ -21,6 +21,8 @@ public string Edi { get; set; }
 
 public List<ListadoMatricula> Matriculado { get; set; }
 
+
+
    public AgregarAsig(int nmatricula,Departamentos departamentos, Asignaturas asignaturas, Alumno alumno)
     {
        
