@@ -78,7 +78,7 @@ public class AdicionarAsig
 
         foreach (var Al in Alum)
         {
-            Console.WriteLine(Al.NumeroCuenta + "," + Al.Nombre);
+            Console.WriteLine(Al.NumeroCuenta + "," + Al.Nombre + "," + Al.Carrera);
         }
     }
     public void MostrarDepto()
@@ -230,30 +230,38 @@ public class AdicionarAsig
             Console.WriteLine("                           M A T R I C U L A                               ");
             Console.WriteLine("===========================================================================");
             Console.WriteLine("Nombre:           "+ j.Nombre);
-            Console.WriteLine("Numero de Cuenta: "+j.NumeroCuenta);
             Console.WriteLine("___________________________________________________________________________");
             Console.WriteLine("Cod|          Asignatura       | Secc | HI | HF  | Horario   | Edificio   |");
             Console.WriteLine("___|___________________________|______|____|_____|___________|____________|");
         foreach (var Mat in ListadeMatricula)
         {
-            //Console.WriteLine(Mat.Alumno.Nombre);
-            //Console.WriteLine(Mat.Alumno.NumeroCuenta);
 
             Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "   |" + Mat.Edi + "  |");
-
-           // foreach (var Ag in Mat.Matriculado)
-           // {
-            //    Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "   |" + Mat.Edi);
-
-           // }
-
-        
         }
 
         Console.ReadLine();     
     }
 
     ////////////////////
+       public void Forma03()
+    {
+        Console.Clear();
+            Alumno j = new Alumno(20192001134, "Alex Issai Matamoros Fuentes", 1234,"Informatica Administrativa");
+            Console.WriteLine("                           M A T R I C U L A                               ");
+            Console.WriteLine("================================================================================");
+            Console.WriteLine("Nombre:           "+ j.Nombre + "             Carrera:" + j.Carrera);
+            Console.WriteLine("Numero de Cuenta: "+j.NumeroCuenta);
+            Console.WriteLine("___________________________________________________________________________");
+            Console.WriteLine("Cod|          Asignatura       | Secc | HI | HF  | Horario   | Edificio   |");
+            Console.WriteLine("___|___________________________|______|____|_____|___________|____________|");
+        foreach (var Mat in ListadeMatricula)
+        {
+
+            Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "   |" + Mat.Edi + "  |");
+        }
+
+        Console.ReadLine();     
+    }
 
         
 }
