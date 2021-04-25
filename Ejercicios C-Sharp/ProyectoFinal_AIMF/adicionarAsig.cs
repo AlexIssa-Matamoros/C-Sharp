@@ -9,6 +9,7 @@ public class AdicionarAsig
     public List<Secciones> ListadeSecciones { get; set; }
     public List<Alumno> Alum { get; set; }
     public List<AgregarAsig> ListadeMatricula { get; set; }
+    public List<AgregarAsig> Cancelado { get; set; }
     
     public AdicionarAsig()
     
@@ -23,6 +24,7 @@ public class AdicionarAsig
         MirarAlum();
 
         ListadeMatricula = new List<AgregarAsig>();
+        Cancelado = new List<AgregarAsig>();
     }
 
     private void MirarAlum()
@@ -43,11 +45,11 @@ public class AdicionarAsig
     }
     private void CargarAsig()
     {
-        Asignaturas A1 = new Asignaturas(01, "Intro a Informatica        ");
+        Asignaturas A1 = new Asignaturas("01", "Intro a Informatica        ");
             ListadeAsignaturas.Add(A1);
-        Asignaturas A2 = new Asignaturas(02, "Taller de Hardawe I        ");
+        Asignaturas A2 = new Asignaturas("02", "Taller de Hardawe I        ");
             ListadeAsignaturas.Add(A2);
-        Asignaturas A3 = new Asignaturas(03, "Metodologia de Programacion");
+        Asignaturas A3 = new Asignaturas("03", "Metodologia de Programacion");
             ListadeAsignaturas.Add(A3);
 
     }
@@ -150,17 +152,9 @@ public class AdicionarAsig
         Console.Clear();
         Console.WriteLine("M a t r i c u l a");
         Console.WriteLine("-----------------");
-        Console.WriteLine("");
-
-        Console.WriteLine("Ingrese su numero de cuenta: ");
-        string Ncuen = Console.ReadLine();
-        Alumno Al = Alum.Find(a => a.NumeroCuenta.ToString() == Ncuen);
-        if (Al == null)
-        {
-            Console.WriteLine("Numero de cuenta no registrado");
-            Console.ReadLine();
-            return;
-        }
+       string Ncuen = Console.ReadLine();
+       Alumno Al = Alum.Find(a => a.NumeroCuenta.ToString() == Ncuen);
+     
  
         Console.WriteLine("Ingrese el codigo del Departamento: ");
         string codigoDe = Console.ReadLine();
@@ -179,7 +173,7 @@ public class AdicionarAsig
             Console.WriteLine("Ingrese el codigo de la Asignatura: ");
             string codigoAs = Console.ReadLine();
             
-            Asignaturas Asig = ListadeAsignaturas.Find(A => A.Codigo_Clase.ToString() == codigoAs);
+            Asignaturas Asig = ListadeAsignaturas.Find(A => A.Codigo_Clase == codigoAs);
             string numero = Console.ReadLine();
             //Alumno Al = Alum.Find(al => al.NumeroCuenta.ToString() == numero);
             if (Asig == null)
@@ -196,8 +190,9 @@ public class AdicionarAsig
             }
 
 
-            int Nmatricula = ListadeMatricula.Count + 1;
-            AgregarAsig Matri = new AgregarAsig(Nmatricula, Depto, Asig,Al);
+            //int Nmatricula = ListadeMatricula.Count + 1;
+            //int Mmatricula = Cancelado.Count + 1;
+            AgregarAsig Matri = new AgregarAsig(Depto, Asig,Al);
             ListadeMatricula.Add(Matri);
         while (true)
         {  
@@ -223,6 +218,28 @@ public class AdicionarAsig
             
     }
 
+    ///////////////////////////// CANCELAR ASIGNATURA /////////////////////////
+
+    public void Cancelar()
+    {
+        Console.Clear();
+        Console.WriteLine(" Cancelar Clase");
+        Console.WriteLine("");
+        Console.WriteLine("Ingrese el codigo de la clase");
+        string Codigoc = Console.ReadLine();
+        Console.WriteLine("Ingrese la seccion: ");
+        string secc = Console.ReadLine();
+        foreach (var C in ListadeMatricula)
+        {
+            if (C.CodigoClase == Codigoc)
+            {
+               ListadeMatricula.Remove(C);
+               break;
+            }
+        }   
+        Console.ReadLine();
+    }
+            
     public void PreMatricula()
     {
         Console.Clear();
@@ -235,11 +252,10 @@ public class AdicionarAsig
             Console.WriteLine("___|___________________________|______|____|_____|___________|____________|");
         foreach (var Mat in ListadeMatricula)
         {
-
+            //Console.WriteLine(Mat.Matriculado);
             Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "   |" + Mat.Edi + "  |");
         }
-
-        Console.ReadLine();     
+        Console.ReadLine();
     }
 
     ////////////////////
@@ -256,7 +272,6 @@ public class AdicionarAsig
             Console.WriteLine("___|___________________________|______|____|_____|___________|____________|");
         foreach (var Mat in ListadeMatricula)
         {
-
             Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "   |" + Mat.Edi + "  |");
         }
 

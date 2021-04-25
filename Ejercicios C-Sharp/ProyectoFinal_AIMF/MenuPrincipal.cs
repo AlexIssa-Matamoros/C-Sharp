@@ -25,7 +25,7 @@ public class MenuPrincipal
                 M2.menu2();
                     break;
                 case "2":
-                    Ad.MostrarSecc();
+                    Ad.Cancelar();
                     break;
                 case "3":
                     Ad.Forma03();
