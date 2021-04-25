@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 
 public class AdicionarAsig
 {
@@ -123,26 +124,64 @@ public class AdicionarAsig
     }
     
     //////////////////////////////////////
-    public void Login()
-    {
+    public void intro(){
         Console.Clear();
         Console.WriteLine("                             B I E N V E N I D O");
         Console.WriteLine("-------------------------------------------------------------------------------------");
         Console.WriteLine("");
+    }
+    public void Login()
+    {
+        intro();
         MenuPrincipal men = new MenuPrincipal();
-
+        Boolean Login = false;    
         Console.Write("Numero de Cuenta: "); string Ncue = Console.ReadLine();
         Console.Write("Ingrese la contraseña: "); string con = Console.ReadLine();
-        if (Ncue == "20192001134" && con == "1234")
+        
+        if (Ncue != "20192001134" && con != "1234")
         {
-            Console.WriteLine("Datos Correctos, Presione ENTER para continuar...");
-            Console.ReadKey();
-            men.menu();
-        } else{
-            Console.WriteLine("Los datos no coinciden");
-            return;
+            Login=false;
+            while(Login == false)
+            {
+            intro();
+            Console.WriteLine("Los datos no coinciden, por favor ingrese los correctos");
+            Console.Write("Numero de Cuenta: "); Ncue = Console.ReadLine();
+            Console.Write("Ingrese la contraseña: "); con = Console.ReadLine();
+            //return;
+            if (Ncue != "20192001134" && con != "1234")
+            {
+                Login=false;
+            } else {
+                Login = true;
+            }
+        }
+        } else {
+            Login= true;
         }
         
+        while(Login == false)
+        {
+            Console.WriteLine("Los datos no coinciden");
+            //return;
+        }
+            Console.WriteLine("Datos Correctos...");
+            escribirPBar();
+            //Timer PB = new Timer(escribirPBar, 1, 0, 1);
+            men.menu();  
+            Console.ReadKey();
+                 
+        }
+    //Funcion de timer
+    public  void escribirPBar() {
+        int contador = 0;
+        while (contador<=100)
+        {
+            Console.Clear();
+            intro();
+            Console.WriteLine("Cargando "+ contador + "%");
+            contador++;
+            Thread.Sleep(100);
+        }
     }
     ///////////////////////////////////////
     private void MovimientoCupos(string nseccion,string tipoMov)
