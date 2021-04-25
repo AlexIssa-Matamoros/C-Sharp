@@ -166,13 +166,15 @@ public class AdicionarAsig
         }
             Console.WriteLine("Datos Correctos...");
             escribirPBar();
+            Barra();
             //Timer PB = new Timer(escribirPBar, 1, 0, 1);
             men.menu();  
             Console.ReadKey();
                  
         }
     //Funcion de timer
-    public  void escribirPBar() {
+    public  void escribirPBar() 
+    {
         int contador = 0;
         while (contador<=100)
         {
@@ -182,6 +184,18 @@ public class AdicionarAsig
             contador++;
             Thread.Sleep(100);
         }
+       
+    }
+    public  void Barra() 
+    {
+        int contador = 0;
+        while (contador<=100)
+        {
+            Console.Write("|");
+            contador++;
+            Thread.Sleep(100);
+        }
+       
     }
     ///////////////////////////////////////
     private void MovimientoCupos(string nseccion,string tipoMov)
