@@ -17,7 +17,7 @@ public class MenuPrincipal
             Console.WriteLine("2 - Cancelar asignatura                   |  6 - Ver Asignaturas ");
             Console.WriteLine("3 - Formar 03                             |  7 - Ver Secciones");
             Console.WriteLine("4 - Estado de Cuenta                      |  8 - Ver Clases Matriculadas");
-            Console.WriteLine("0 - Cerrar Sesion");
+            Console.WriteLine("0 - Cerrar Sesion                         |  9 - Ver Clases Canceladas");
             opcion = Console.ReadLine();
             switch (opcion)
             {
@@ -44,6 +44,9 @@ public class MenuPrincipal
                     break;
                 case "8":
                      Ad.PreMatricula();
+                    break;
+                case "9":
+                    //Ad.AsigCanceladas();
                     break;
                 default:
                 break;

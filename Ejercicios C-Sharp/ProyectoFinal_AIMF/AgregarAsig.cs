@@ -15,10 +15,10 @@ public string SeccionesM { get; set; }
 public string SeccionesC { get; set; }
 public string CodigoClase { get; set; }
 public string ParaNombre { get; set; }
-public int ParaSecciones { get; set; } 
+public string ParaSecciones { get; set; } 
 public string ParaHorario { get; set; }
-public int HoraIni { get; set; }
-public int Horafi { get; set; }
+public string HoraIni { get; set; }
+public string Horafi { get; set; }
 public string Edi { get; set; }
 
 public List<ListadoMatricula> Matriculado { get; set; }

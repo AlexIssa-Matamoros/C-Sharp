@@ -55,23 +55,23 @@ public class AdicionarAsig
     }
     private void CargarSecciones()
     {
-            Secciones s1 = new Secciones(0700,07,08,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
+            Secciones s1 = new Secciones("0700","07","08","LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s1);
-            Secciones s2 = new Secciones(0701,07,08,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
+            Secciones s2 = new Secciones("0701","07","08","LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s2);
-            Secciones s3 = new Secciones(0800,08,09,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
+            Secciones s3 = new Secciones("0800","08","09","LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s3);
-            Secciones s4 = new Secciones(0801,08,09,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
+            Secciones s4 = new Secciones("0801","08","09","LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s4);
-            Secciones s5 = new Secciones(0900,09,10,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
+            Secciones s5 = new Secciones("0900","09","10","LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s5);
-            Secciones s6 = new Secciones(0901,09,10,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
+            Secciones s6 = new Secciones("0901","09","10","LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s6);
-            Secciones s7 = new Secciones(1000,10,11,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
+            Secciones s7 = new Secciones("1000","10","11","LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s7);
-            Secciones s8 = new Secciones(1001,10,11,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
+            Secciones s8 = new Secciones("1001","10","11","LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s8);
-            Secciones s9 = new Secciones(1100,11,12,"LuMaMiJu","Edificio 5",30, "Bily Fernandez");
+            Secciones s9 = new Secciones("1100","11","12","LuMaMiJu","Edificio 5",30, "Bily Fernandez");
         ListadeSecciones.Add(s9);
     }
 
@@ -174,7 +174,7 @@ public class AdicionarAsig
             string codigoAs = Console.ReadLine();
             
             Asignaturas Asig = ListadeAsignaturas.Find(A => A.Codigo_Clase == codigoAs);
-            string numero = Console.ReadLine();
+            //string numero = Console.ReadLine();
             //Alumno Al = Alum.Find(al => al.NumeroCuenta.ToString() == numero);
             if (Asig == null)
             {
@@ -198,7 +198,7 @@ public class AdicionarAsig
         {  
             Console.WriteLine("Ingrese la Seccion: ");
             string Secci = Console.ReadLine();
-            Secciones secciones = ListadeSecciones.Find(s => s.Seccion.ToString()== Secci);
+            Secciones secciones = ListadeSecciones.Find(s => s.Seccion == Secci);
             if (secciones ==  null)
             {
                 Console.WriteLine("Seccion en lista de Espera");
@@ -211,6 +211,7 @@ public class AdicionarAsig
             }
            
             Console.WriteLine("");
+            Console.WriteLine("___________________________________________________________________________________________________");
             Console.WriteLine("La Asignaturas seleccionada es: " + Matri.SeccionesM);
             Console.ReadLine();
             return;
@@ -243,7 +244,7 @@ public class AdicionarAsig
         
         Console.ReadLine();
     }
-            
+
     public void PreMatricula()
     {
         Console.Clear();
@@ -251,13 +252,13 @@ public class AdicionarAsig
             Console.WriteLine("                           M A T R I C U L A                               ");
             Console.WriteLine("===========================================================================");
             Console.WriteLine("Nombre:           "+ j.Nombre);
-            Console.WriteLine("___________________________________________________________________________");
-            Console.WriteLine("Cod |          Asignatura       | Secc | HI | HF  | Horario   | Edificio   |");
-            Console.WriteLine("____|___________________________|______|____|_____|___________|____________|");
+            Console.WriteLine("_________________________________________________________________________________");
+            Console.WriteLine("Cod |          Asignatura       | Secc  | HI  | HF   | Horario    | Edificio    |");
+            Console.WriteLine("____|___________________________|_______|_____|______|____________|_____________|");
         foreach (var Mat in ListadeMatricula)
         {
          
-            Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "   |" + Mat.Edi + "  |");
+            Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "    |" + Mat.Edi + "   |");
         }
         Console.ReadLine();
     }
@@ -271,12 +272,12 @@ public class AdicionarAsig
             Console.WriteLine("================================================================================");
             Console.WriteLine("Nombre:           "+ j.Nombre + "             Carrera:" + j.Carrera);
             Console.WriteLine("Numero de Cuenta: "+j.NumeroCuenta);
-            Console.WriteLine("___________________________________________________________________________");
-            Console.WriteLine("Cod|          Asignatura       | Secc | HI | HF  | Horario   | Edificio   |");
-            Console.WriteLine("___|___________________________|______|____|_____|___________|____________|");
+            Console.WriteLine("_________________________________________________________________________________");
+            Console.WriteLine("Cod |          Asignatura       | Secc  | HI  | HF   | Horario    | Edificio    |");
+            Console.WriteLine("____|___________________________|_______|_____|______|____________|_____________|");
         foreach (var Mat in ListadeMatricula)
         {
-            Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "   |" + Mat.Edi + "  |");
+            Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "    |" + Mat.Edi + "   |");
         }
 
         Console.ReadLine();     
