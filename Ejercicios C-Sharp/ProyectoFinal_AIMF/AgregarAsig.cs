@@ -25,21 +25,21 @@ public List<ListadoMatricula> Matriculado { get; set; }
 public List<ListadoMatricula> Canc { get; set; }
 
 
-   public AgregarAsig(Departamentos departamentos, Asignaturas asignaturas, Alumno alumno)
+   public AgregarAsig(Departamentos departamentos, Asignaturas asignaturas)
     {
        //Mmatricula = mmatricula;
       // Nmatricula = nmatricula;
        Departamentos = departamentos;
        Asignaturas = asignaturas;
-       Alumno = alumno;
+      // Alumno = alumno;
        Matriculado = new List<ListadoMatricula>();
        Canc = new List<ListadoMatricula>();
     }
-    public void AgragarAsignatura(Asignaturas asignaturas, Secciones secciones, Alumno alumno)
+    public void AgragarAsignatura(Asignaturas asignaturas, Secciones secciones)
     {
         //int Nmatricula = Matriculado.Count + 1;
 
-        ListadoMatricula Lm = new ListadoMatricula(asignaturas,secciones,alumno);
+        ListadoMatricula Lm = new ListadoMatricula(asignaturas,secciones);
         Matriculado.Add(Lm);
         SeccionesM = asignaturas.Codigo_Clase + " , " + asignaturas.Clase + " , " + secciones.Seccion + " , " + secciones.Horario + " , " + secciones.Cupos + " , " + secciones.Profesor;
         
@@ -58,7 +58,7 @@ public List<ListadoMatricula> Canc { get; set; }
     {
         //int Nmatricula = Matriculado.Count + 1;
 
-        ListadoMatricula A = new ListadoMatricula(asignaturas,secciones,alumno);
+        ListadoMatricula A = new ListadoMatricula(asignaturas,secciones);
         Canc.Add(A);
         SeccionesM = asignaturas.Codigo_Clase + " , " + asignaturas.Clase + " , " + secciones.Seccion + " , " + secciones.Horario + " , " + secciones.Cupos + " , " + secciones.Profesor;
         

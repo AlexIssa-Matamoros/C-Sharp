@@ -16,13 +16,13 @@ public class MenuPrincipal
             Console.WriteLine("1 - Adicionar asignatura                  |  5 - Ver Departamentos");
             Console.WriteLine("2 - Cancelar asignatura                   |  6 - Ver Asignaturas ");
             Console.WriteLine("3 - Formar 03                             |  7 - Ver Secciones");
-            Console.WriteLine("4 - Estado de Cuenta                      |  8 - Realizar Matricula");
-            Console.WriteLine("0 - Cerrar Sesion                         |  9 - Ver clases matriculadas");
+            Console.WriteLine("4 - Estado de Cuenta                      |  8 - Ver Clases Matriculadas");
+            Console.WriteLine("0 - Cerrar Sesion");
             opcion = Console.ReadLine();
             switch (opcion)
             {
                 case "1":
-                M2.menu2();
+                Ad.MatricularClase();
                     break;
                 case "2":
                     Ad.Cancelar();
@@ -43,10 +43,7 @@ public class MenuPrincipal
                     Ad.MostrarSecc();
                     break;
                 case "8":
-                    Ad.MatricularClase();
-                    break;
-                case "9":
-                    Ad.PreMatricula();
+                     Ad.PreMatricula();
                     break;
                 default:
                 break;

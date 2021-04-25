@@ -152,8 +152,8 @@ public class AdicionarAsig
         Console.Clear();
         Console.WriteLine("M a t r i c u l a");
         Console.WriteLine("-----------------");
-       string Ncuen = Console.ReadLine();
-       Alumno Al = Alum.Find(a => a.NumeroCuenta.ToString() == Ncuen);
+       //string Ncuen = Console.ReadLine();
+       //Alumno Al = Alum.Find(a => a.NumeroCuenta.ToString() == Ncuen);
      
  
         Console.WriteLine("Ingrese el codigo del Departamento: ");
@@ -192,7 +192,7 @@ public class AdicionarAsig
 
             //int Nmatricula = ListadeMatricula.Count + 1;
             //int Mmatricula = Cancelado.Count + 1;
-            AgregarAsig Matri = new AgregarAsig(Depto, Asig,Al);
+            AgregarAsig Matri = new AgregarAsig(Depto, Asig);
             ListadeMatricula.Add(Matri);
         while (true)
         {  
@@ -206,7 +206,7 @@ public class AdicionarAsig
                 return;
             } else{
                 Console.WriteLine("Seccion Disponible: " + secciones.Seccion + "," + secciones.Horario + "," + secciones.Cupos + "," + secciones.Profesor);
-                Matri.AgragarAsignatura(Asig,secciones,Al);
+                Matri.AgragarAsignatura(Asig,secciones);
                 
             }
            
@@ -223,7 +223,8 @@ public class AdicionarAsig
     public void Cancelar()
     {
         Console.Clear();
-        Console.WriteLine(" Cancelar Clase");
+        Console.WriteLine("              C A N C E L A R    C L A S E              ");
+        Console.WriteLine("--------------------------------------------------------");
         Console.WriteLine("");
         Console.WriteLine("Ingrese el codigo de la clase");
         string Codigoc = Console.ReadLine();
@@ -234,9 +235,12 @@ public class AdicionarAsig
             if (C.CodigoClase == Codigoc)
             {
                ListadeMatricula.Remove(C);
+               Console.WriteLine("Asignatura Cancelada: "+ C.CodigoClase + ", " + C.ParaNombre + ", " + C.ParaSecciones); 
                break;
             }
-        }   
+              
+        }
+        
         Console.ReadLine();
     }
             
@@ -248,11 +252,11 @@ public class AdicionarAsig
             Console.WriteLine("===========================================================================");
             Console.WriteLine("Nombre:           "+ j.Nombre);
             Console.WriteLine("___________________________________________________________________________");
-            Console.WriteLine("Cod|          Asignatura       | Secc | HI | HF  | Horario   | Edificio   |");
-            Console.WriteLine("___|___________________________|______|____|_____|___________|____________|");
+            Console.WriteLine("Cod |          Asignatura       | Secc | HI | HF  | Horario   | Edificio   |");
+            Console.WriteLine("____|___________________________|______|____|_____|___________|____________|");
         foreach (var Mat in ListadeMatricula)
         {
-            //Console.WriteLine(Mat.Matriculado);
+         
             Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "   |" + Mat.Edi + "  |");
         }
         Console.ReadLine();
