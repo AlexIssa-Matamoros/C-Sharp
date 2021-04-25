@@ -130,10 +130,9 @@ public class AdicionarAsig
         Console.WriteLine("-------------------------------------------------------------------------------------");
         Console.WriteLine("");
         MenuPrincipal men = new MenuPrincipal();
-        
 
-        Console.WriteLine("Numero de Cuenta: "); string Ncue = Console.ReadLine();
-        Console.WriteLine("Ingrese la contraseña: "); string con = Console.ReadLine();
+        Console.Write("Numero de Cuenta: "); string Ncue = Console.ReadLine();
+        Console.Write("Ingrese la contraseña: "); string con = Console.ReadLine();
         if (Ncue == "20192001134" && con == "1234")
         {
             Console.WriteLine("Datos Correctos, Presione ENTER para continuar...");
@@ -141,22 +140,33 @@ public class AdicionarAsig
             men.menu();
         } else{
             Console.WriteLine("Los datos no coinciden");
-            Console.ReadLine();
+            return;
         }
         
     }
     ///////////////////////////////////////
-
+    private void MovimientoCupos(string nseccion,string tipoMov)
+    {
+        foreach (var S in ListadeSecciones)
+        {
+            if (S.Seccion == nseccion)
+            {
+                if (tipoMov == "+")
+                {
+                    S.Cupos = S.Cupos + 1;
+                } else {
+                    S.Cupos = S.Cupos - 1;
+                }
+            }
+        }
+    }
     public void MatricularClase()
     {
         Console.Clear();
         Console.WriteLine("M a t r i c u l a");
         Console.WriteLine("-----------------");
-       //string Ncuen = Console.ReadLine();
-       //Alumno Al = Alum.Find(a => a.NumeroCuenta.ToString() == Ncuen);
-     
- 
-        Console.WriteLine("Ingrese el codigo del Departamento: ");
+       
+        Console.Write("Ingrese el codigo del Departamento: ");
         string codigoDe = Console.ReadLine();
         Departamentos Depto = ListadeDepto.Find(a => a.Codigo.ToString() == codigoDe);
         if (Depto == null)
@@ -170,7 +180,7 @@ public class AdicionarAsig
             Console.WriteLine("");
         }
 
-            Console.WriteLine("Ingrese el codigo de la Asignatura: ");
+            Console.Write("Ingrese el codigo de la Asignatura: ");
             string codigoAs = Console.ReadLine();
             
             Asignaturas Asig = ListadeAsignaturas.Find(A => A.Codigo_Clase == codigoAs);
@@ -196,7 +206,7 @@ public class AdicionarAsig
             ListadeMatricula.Add(Matri);
         while (true)
         {  
-            Console.WriteLine("Ingrese la Seccion: ");
+            Console.Write("Ingrese la Seccion: ");
             string Secci = Console.ReadLine();
             Secciones secciones = ListadeSecciones.Find(s => s.Seccion == Secci);
             if (secciones ==  null)
@@ -207,6 +217,7 @@ public class AdicionarAsig
             } else{
                 Console.WriteLine("Seccion Disponible: " + secciones.Seccion + "," + secciones.Horario + "," + secciones.Cupos + "," + secciones.Profesor);
                 Matri.AgragarAsignatura(Asig,secciones);
+                MovimientoCupos(Secci,"-");
                 
             }
            
@@ -227,9 +238,9 @@ public class AdicionarAsig
         Console.WriteLine("              C A N C E L A R    C L A S E              ");
         Console.WriteLine("--------------------------------------------------------");
         Console.WriteLine("");
-        Console.WriteLine("Ingrese el codigo de la clase");
+        Console.Write("Ingrese el codigo de la clase: ");
         string Codigoc = Console.ReadLine();
-        Console.WriteLine("Ingrese la seccion: ");
+        Console.Write("Ingrese la seccion: ");
         string secc = Console.ReadLine();
         foreach (var C in ListadeMatricula)
         {
@@ -237,9 +248,13 @@ public class AdicionarAsig
             {
                ListadeMatricula.Remove(C);
                Console.WriteLine("Asignatura Cancelada: "+ C.CodigoClase + ", " + C.ParaNombre + ", " + C.ParaSecciones); 
-               break;
+               
+            } if (C.ParaSecciones == secc)
+            {
+                MovimientoCupos(secc,"+");
+                break;
             }
-              
+            
         }
         
         Console.ReadLine();
@@ -262,6 +277,7 @@ public class AdicionarAsig
         }
         Console.ReadLine();
     }
+
 
     ////////////////////
        public void Forma03()

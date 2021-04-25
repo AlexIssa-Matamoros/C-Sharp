@@ -20,6 +20,7 @@ public string ParaHorario { get; set; }
 public string HoraIni { get; set; }
 public string Horafi { get; set; }
 public string Edi { get; set; }
+public int Cu { get; set; }
 
 public List<ListadoMatricula> Matriculado { get; set; }
 public List<ListadoMatricula> Canc { get; set; }
@@ -70,7 +71,7 @@ public List<ListadoMatricula> Canc { get; set; }
         HoraIni = secciones.HI;
         Horafi = secciones.HF;
         Edi = secciones.Edificio;
-
+        Cu = secciones.Cupos;
         
 
     }

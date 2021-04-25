@@ -40,8 +40,10 @@ public class Inventario
     private void movimientoInventario(string codigo, int cantidad, string tipoMovimiento) {
         foreach (var producto in ListadeProductos)
         {
-            if (producto.Codigo == codigo) {
-                if (tipoMovimiento == "+") {
+            if (producto.Codigo == codigo) 
+            {
+                if (tipoMovimiento == "+") 
+                {
                     producto.Existencia = producto.Existencia + cantidad;
                 } else {
                     producto.Existencia = producto.Existencia - cantidad;
