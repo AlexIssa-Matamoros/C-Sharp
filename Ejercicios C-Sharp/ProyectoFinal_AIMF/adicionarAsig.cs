@@ -40,7 +40,7 @@ public class AdicionarAsig
             ListadeDepto.Add(D1);
         Departamentos D2 = new Departamentos(02, "Contaduria");
             ListadeDepto.Add(D2);
-        Departamentos D3 = new Departamentos(02, "Historia");
+        Departamentos D3 = new Departamentos(03, "Historia");
             ListadeDepto.Add(D3);
 
     }
@@ -87,12 +87,15 @@ public class AdicionarAsig
     public void MostrarDepto()
     {
         Console.Clear();
-        Console.WriteLine("DEPARTAMENTOS");
-        Console.WriteLine("");
+        Console.WriteLine("               D E P A R T A M E N T O S");
+        Console.WriteLine("----------------------------------------------------");
+            Console.WriteLine("___________________________________");
+            Console.WriteLine(" Cod |         Nombre Dep          |");
+            Console.WriteLine("_____|_____________________________|");
 
         foreach (var De in ListadeDepto)
         {
-            Console.WriteLine(De.Codigo + " | " + De.Nombre_Dep);
+            Console.WriteLine(De.Codigo + "    | " + De.Nombre_Dep);
         }
         Console.ReadLine();
     }
@@ -100,7 +103,12 @@ public class AdicionarAsig
     public void MostrarAsig()
     {
         Console.Clear();
-        Console.WriteLine("ASIGNATURAS");
+        Console.WriteLine("               A S I G N A T U R A S");
+        Console.WriteLine("----------------------------------------------------");
+            Console.WriteLine("___________________________________");
+            Console.WriteLine("Cod|         Nombre Asig         |");
+            Console.WriteLine("___|_____________________________|");
+
        
 
         foreach (var As in ListadeAsignaturas)
@@ -113,9 +121,11 @@ public class AdicionarAsig
     public void MostrarSecc()
     {
         Console.Clear();
-        Console.WriteLine("SECCIONES");
-       
-
+        Console.WriteLine("                   S E C C I O N E S");
+        Console.WriteLine("--------------------------------------------------------------");
+            Console.WriteLine("____________________________________");
+            Console.WriteLine("Secc |  Horario |Cupo| Profesor     |");
+            Console.WriteLine("_____|__________|____|______________|");
         foreach (var Se in ListadeSecciones)
         {
             Console.WriteLine(Se.Seccion + " | " + Se.Horario + " | " + Se.Cupos + " | " + Se.Profesor);
@@ -126,17 +136,21 @@ public class AdicionarAsig
     //////////////////////////////////////
     public void intro(){
         Console.Clear();
-        Console.WriteLine("                             B I E N V E N I D O");
-        Console.WriteLine("-------------------------------------------------------------------------------------");
+        Console.WriteLine("                           B I E N V E N I D O");
+        Console.WriteLine("---------------------------------------------------------------------------------");
+        
         Console.WriteLine("");
+        
     }
     public void Login()
     {
         intro();
         MenuPrincipal men = new MenuPrincipal();
-        Boolean Login = false;    
-        Console.Write("Numero de Cuenta: "); string Ncue = Console.ReadLine();
-        Console.Write("Ingrese la contraseña: "); string con = Console.ReadLine();
+        Boolean Login = false;
+        Console.WriteLine("---------------- Ingresa tu numero de cuenta y clave ------------------------------");
+        Console.WriteLine("");   
+        Console.Write("         Numero de Cuenta: "); string Ncue = Console.ReadLine();
+        Console.Write("         Ingrese la contraseña: "); string con = Console.ReadLine();
         
         if (Ncue != "20192001134" && con != "1234")
         {
@@ -145,8 +159,11 @@ public class AdicionarAsig
             {
             intro();
             Console.WriteLine("Los datos no coinciden, por favor ingrese los correctos");
-            Console.Write("Numero de Cuenta: "); Ncue = Console.ReadLine();
-            Console.Write("Ingrese la contraseña: "); con = Console.ReadLine();
+            Console.ReadLine();
+            Console.Clear();
+            intro();
+            Console.Write("     Numero de Cuenta: "); Ncue = Console.ReadLine();
+            Console.Write("     Ingrese la contraseña: "); con = Console.ReadLine();
             //return;
             if (Ncue != "20192001134" && con != "1234")
             {
@@ -162,12 +179,9 @@ public class AdicionarAsig
         while(Login == false)
         {
             Console.WriteLine("Los datos no coinciden");
-            //return;
         }
             Console.WriteLine("Datos Correctos...");
             escribirPBar();
-            Barra();
-            //Timer PB = new Timer(escribirPBar, 1, 0, 1);
             men.menu();  
             Console.ReadKey();
                  
@@ -176,13 +190,25 @@ public class AdicionarAsig
     public  void escribirPBar() 
     {
         int contador = 0;
-        while (contador<=100)
+        int contador2 = 0;
+        int stop = 100;
+        while (contador2 <= stop)
         {
             Console.Clear();
             intro();
-            Console.WriteLine("Cargando "+ contador + "%");
-            contador++;
-            Thread.Sleep(100);
+            Console.SetCursorPosition(1,2);
+            Console.WriteLine("Espere...");
+            Console.Write("Cargando "+ contador2 + "%");
+            Thread.Sleep(1);
+            contador2++;
+
+            if (contador < 80)
+            {
+               Console.SetCursorPosition(contador2,4);
+               Console.Write("█" );
+               Thread.Sleep(30);
+            }
+        contador++;
         }
        
     }
@@ -216,8 +242,8 @@ public class AdicionarAsig
     public void MatricularClase()
     {
         Console.Clear();
-        Console.WriteLine("M a t r i c u l a");
-        Console.WriteLine("-----------------");
+        Console.WriteLine("                   M a t r i c u l a");
+        Console.WriteLine("--------------------------------------------------------------");
        
         Console.Write("Ingrese el codigo del Departamento: ");
         string codigoDe = Console.ReadLine();
@@ -268,7 +294,7 @@ public class AdicionarAsig
                 Console.ReadLine();
                 return;
             } else{
-                Console.WriteLine("Seccion Disponible: " + secciones.Seccion + "," + secciones.Horario + "," + secciones.Cupos + "," + secciones.Profesor);
+                Console.WriteLine("Seccion Disponible: " + secciones.Seccion + "," + secciones.Horario + "," + secciones.Profesor);
                 Matri.AgragarAsignatura(Asig,secciones);
                 MovimientoCupos(Secci,"-");
                 
