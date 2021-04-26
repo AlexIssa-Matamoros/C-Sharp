@@ -46,11 +46,11 @@ public class AdicionarAsig
     }
     private void CargarAsig()
     {
-        Asignaturas A1 = new Asignaturas("01", "Intro a Informatica        ");
+        Asignaturas A1 = new Asignaturas("IA-012", "Introduccion a Informatica ");
             ListadeAsignaturas.Add(A1);
-        Asignaturas A2 = new Asignaturas("02", "Taller de Hardawe I        ");
+        Asignaturas A2 = new Asignaturas("IA-023", "Taller de Hardawe I        ");
             ListadeAsignaturas.Add(A2);
-        Asignaturas A3 = new Asignaturas("03", "Metodologia de Programacion");
+        Asignaturas A3 = new Asignaturas("IA-033", "Metodologia de Programacion");
             ListadeAsignaturas.Add(A3);
 
     }
@@ -102,15 +102,10 @@ public class AdicionarAsig
 
     public void MostrarAsig()
     {
-        Console.Clear();
-        Console.WriteLine("               A S I G N A T U R A S");
-        Console.WriteLine("----------------------------------------------------");
-            Console.WriteLine("___________________________________");
-            Console.WriteLine("Cod|         Nombre Asig         |");
-            Console.WriteLine("___|_____________________________|");
 
-       
-
+            Console.WriteLine("_______________________________________");
+            Console.WriteLine(" Cod   |         Nombre Asig          |");
+            Console.WriteLine("_______|______________________________|");
         foreach (var As in ListadeAsignaturas)
         {
             Console.WriteLine(As.Codigo_Clase + " | " + As.Clase);
@@ -120,9 +115,6 @@ public class AdicionarAsig
 
     public void MostrarSecc()
     {
-        Console.Clear();
-        Console.WriteLine("                   S E C C I O N E S");
-        Console.WriteLine("--------------------------------------------------------------");
             Console.WriteLine("____________________________________");
             Console.WriteLine("Secc |  Horario |Cupo| Profesor     |");
             Console.WriteLine("_____|__________|____|______________|");
@@ -142,6 +134,51 @@ public class AdicionarAsig
         Console.WriteLine("");
         
     }
+    public void Asi()
+    {
+        Console.Clear();
+        Console.WriteLine("               A S I G N A T U R A S");
+        Console.WriteLine("----------------------------------------------------");
+        Console.Write("Ingrese el Codigo del Departamento: ");
+        string CoD = Console.ReadLine();
+        Departamentos Dept = ListadeDepto.Find(a => a.Codigo.ToString() == CoD);
+        if (Dept == null)
+        {
+            Console.WriteLine("Parece que no existe ese Departamento");
+            Console.ReadLine();
+            return;
+        }
+        else{
+            Console.WriteLine("Asignaturas del Departamento: " + Dept.Nombre_Dep);
+            Console.WriteLine("");
+        }
+        MostrarAsig();
+
+    }
+    public void Sec()
+    {
+        Console.Clear();
+        Console.WriteLine("                   S E C C I O N E S");
+        Console.WriteLine("--------------------------------------------------------------");
+        Console.WriteLine("");
+        Console.Write("Ingrese el codigo de la Asignatura: ");
+        string CodigoA = Console.ReadLine();
+        Asignaturas As = ListadeAsignaturas.Find(A => A.Codigo_Clase == CodigoA);
+            if (As == null)
+            {
+                Console.WriteLine("Parece que no existe esta Asignatura");
+                Console.ReadLine();
+                Console.WriteLine("");
+                return;
+            } 
+            else
+            {
+                Console.WriteLine("Secciones de la asignatura " + As.Clase);
+                Console.WriteLine("");
+
+            }
+        MostrarSecc();
+    }
     public void Login()
     {
         intro();
@@ -150,7 +187,7 @@ public class AdicionarAsig
         Console.WriteLine("---------------- Ingresa tu numero de cuenta y clave ------------------------------");
         Console.WriteLine("");   
         Console.Write("         Numero de Cuenta: "); string Ncue = Console.ReadLine();
-        Console.Write("         Ingrese la contraseña: "); string con = Console.ReadLine();
+        Console.Write("         Ingrese la Clave: "); string con = Console.ReadLine();
         
         if (Ncue != "20192001134" && con != "1234")
         {
@@ -163,7 +200,7 @@ public class AdicionarAsig
             Console.Clear();
             intro();
             Console.Write("     Numero de Cuenta: "); Ncue = Console.ReadLine();
-            Console.Write("     Ingrese la contraseña: "); con = Console.ReadLine();
+            Console.Write("     Ingrese la Clave: "); con = Console.ReadLine();
             //return;
             if (Ncue != "20192001134" && con != "1234")
             {
@@ -186,7 +223,6 @@ public class AdicionarAsig
             Console.ReadKey();
                  
         }
-    //Funcion de timer
     public  void escribirPBar() 
     {
         int contador = 0;
@@ -196,34 +232,24 @@ public class AdicionarAsig
         {
             Console.Clear();
             intro();
-            Console.SetCursorPosition(1,2);
+            Console.SetCursorPosition(2,2);
             Console.WriteLine("Espere...");
-            Console.Write("Cargando "+ contador2 + "%");
+            Console.Write(    "Cargando "+ contador2 + "%");
             Thread.Sleep(1);
             contador2++;
 
-            if (contador < 80)
+            if (contador < 100)
             {
                Console.SetCursorPosition(contador2,4);
-               Console.Write("█" );
                Thread.Sleep(30);
+               Console.Write("|");
             }
+               
         contador++;
         }
        
     }
-    public  void Barra() 
-    {
-        int contador = 0;
-        while (contador<=100)
-        {
-            Console.Write("|");
-            contador++;
-            Thread.Sleep(100);
-        }
-       
-    }
-    ///////////////////////////////////////
+   
     private void MovimientoCupos(string nseccion,string tipoMov)
     {
         foreach (var S in ListadeSecciones)
@@ -263,24 +289,28 @@ public class AdicionarAsig
             string codigoAs = Console.ReadLine();
             
             Asignaturas Asig = ListadeAsignaturas.Find(A => A.Codigo_Clase == codigoAs);
-            //string numero = Console.ReadLine();
-            //Alumno Al = Alum.Find(al => al.NumeroCuenta.ToString() == numero);
+            AgregarAsig As = ListadeMatricula.Find(s => s.CodigoClase == codigoAs);
             if (Asig == null)
             {
                 Console.WriteLine("Parece que no existe esta Asignatura");
                 Console.ReadLine();
                 return;
             } 
-            else
+            foreach (var a in ListadeMatricula)
             {
+                if (a.CodigoClase == codigoAs)
+                {
+                    Console.WriteLine("Ya tienes matriculada esa clase");
+                    Console.ReadLine();
+               return;
+                }
+            else{
                 Console.WriteLine("Asignatura Agragada: " + Asig.Clase);
                 Console.WriteLine("");
 
             }
+           } 
 
-
-            //int Nmatricula = ListadeMatricula.Count + 1;
-            //int Mmatricula = Cancelado.Count + 1;
             AgregarAsig Matri = new AgregarAsig(Depto, Asig);
             ListadeMatricula.Add(Matri);
         while (true)
@@ -290,10 +320,11 @@ public class AdicionarAsig
             Secciones secciones = ListadeSecciones.Find(s => s.Seccion == Secci);
             if (secciones ==  null)
             {
-                Console.WriteLine("Seccion en lista de Espera");
+                Console.WriteLine("Seccion No Disponible");
                 Console.ReadLine();
                 return;
-            } else{
+            } 
+            else{
                 Console.WriteLine("Seccion Disponible: " + secciones.Seccion + "," + secciones.Horario + "," + secciones.Profesor);
                 Matri.AgragarAsignatura(Asig,secciones);
                 MovimientoCupos(Secci,"-");
@@ -326,6 +357,7 @@ public class AdicionarAsig
             if (C.CodigoClase == Codigoc)
             {
                ListadeMatricula.Remove(C);
+               Console.WriteLine("");
                Console.WriteLine("Asignatura Cancelada: "+ C.CodigoClase + ", " + C.ParaNombre + ", " + C.ParaSecciones); 
                
             } if (C.ParaSecciones == secc)
@@ -342,17 +374,18 @@ public class AdicionarAsig
     public void PreMatricula()
     {
         Console.Clear();
-            Alumno j = new Alumno(20192001134, "Alex Issai Matamoros Fuentes", 1234,"Informatica Administrativa");
+            //Alumno j = new Alumno(20192001134, "Alex Issai Matamoros Fuentes", 1234,"Informatica Administrativa");
             Console.WriteLine("                           M A T R I C U L A                               ");
             Console.WriteLine("===========================================================================");
-            Console.WriteLine("Nombre:           "+ j.Nombre);
-            Console.WriteLine("_________________________________________________________________________________");
-            Console.WriteLine("Cod |          Asignatura       | Secc  | HI  | HF   | Horario    | Edificio    |");
-            Console.WriteLine("____|___________________________|_______|_____|______|____________|_____________|");
+            Console.WriteLine("                         Asignaturas Matriculadas");
+            //Console.WriteLine("Nombre:           "+ j.Nombre);
+            Console.WriteLine("____________________________________________________________________________________");
+            Console.WriteLine(" Cod   |          Asignatura        | Secc  | HI  | HF   | Horario    | Edificio    |");
+            Console.WriteLine("_______|____________________________|_______|_____|______|____________|_____________|");
         foreach (var Mat in ListadeMatricula)
         {
          
-            Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "    |" + Mat.Edi + "   |");
+            Console.WriteLine(Mat.CodigoClase + " | "+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "    |" + Mat.Edi + "   |");
         }
         Console.ReadLine();
     }
@@ -367,12 +400,13 @@ public class AdicionarAsig
             Console.WriteLine("================================================================================");
             Console.WriteLine("Nombre:           "+ j.Nombre + "             Carrera:" + j.Carrera);
             Console.WriteLine("Numero de Cuenta: "+j.NumeroCuenta);
-            Console.WriteLine("_________________________________________________________________________________");
-            Console.WriteLine("Cod |          Asignatura       | Secc  | HI  | HF   | Horario    | Edificio    |");
-            Console.WriteLine("____|___________________________|_______|_____|______|____________|_____________|");
+            Console.WriteLine("_____________________________________________________________________________________");
+            Console.WriteLine(" Cod   |          Asignatura        | Secc  | HI  | HF   | Horario    | Edificio    |");
+            Console.WriteLine("_______|____________________________|_______|_____|______|____________|_____________|");
         foreach (var Mat in ListadeMatricula)
         {
-            Console.WriteLine(Mat.CodigoClase + "  |"+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "    |" + Mat.Edi + "   |");
+         
+            Console.WriteLine(Mat.CodigoClase + " | "+ Mat.ParaNombre +"|" + Mat.ParaSecciones + "   |" + Mat.HoraIni + "   |" + Mat.Horafi + "    |" + Mat.ParaHorario + "    |" + Mat.Edi + "   |");
         }
 
         Console.ReadLine();     

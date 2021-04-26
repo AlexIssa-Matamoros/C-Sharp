@@ -37,10 +37,10 @@ public class MenuPrincipal
                    Ad.MostrarDepto();
                     break;
                 case "5":
-                   Ad.MostrarAsig();
+                   Ad.Asi();
                     break;
                 case "6":
-                    Ad.MostrarSecc();
+                    Ad.Sec();
                     break;
                 case "7":
                     Ad.PreMatricula();

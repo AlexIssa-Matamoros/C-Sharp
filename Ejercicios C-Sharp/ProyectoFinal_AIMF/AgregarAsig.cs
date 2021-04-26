@@ -61,7 +61,7 @@ public List<ListadoMatricula> Canc { get; set; }
 
         ListadoMatricula A = new ListadoMatricula(asignaturas,secciones);
         Canc.Add(A);
-        SeccionesM = asignaturas.Codigo_Clase + " , " + asignaturas.Clase + " , " + secciones.Seccion + " , " + secciones.Horario + " , " + secciones.Cupos + " , " + secciones.Profesor;
+        SeccionesM = asignaturas.Codigo_Clase + " , " + asignaturas.Clase + " , " + secciones.Seccion + " , " + secciones.Horario + " , " + secciones.Profesor;
         
       
         CodigoClase = asignaturas.Codigo_Clase;
